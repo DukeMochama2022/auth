@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: "*",
+    origin:["https://auth-three-xi.vercel.app/"],
   })
 );
 app.use(helmet());
