@@ -9,7 +9,7 @@ It demonstrates best practices for production readiness, automated deployment, a
 
 ## 🌐 Live URLs
 
-- **Frontend:** [https://your-frontend-url.vercel.app](auth-git-main-projects-projects-17ce6fbc.vercel.app)
+- **Frontend:** [https://your-frontend-url.vercel.app](https://auth-git-main-projects-projects-17ce6fbc.vercel.app/)
 - **Backend API:** [https://auth-6qsf.onrender.com](https://auth-n5m4.onrender.com)
 
 ---
@@ -83,7 +83,7 @@ _Render backend deployment logs_
 
 ## 📈 Monitoring & Maintenance
 
-![Monitoring Dashboard](screenshots/monitorin_dahsboard.png)
+![Monitoring Dashboard](screenshots/monitoring_dahsboard.png)
 _Example monitoring dashboard (e.g., UptimeRobot or Render/Vercel analytics)_
 
 ### Health Check Endpoint
