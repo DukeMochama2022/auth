@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
+const helmet = require("helmet");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(
     origin: "*",
   })
 );
+app.use(helmet());
 
 // MongoDB Connection
 mongoose
@@ -24,6 +26,10 @@ mongoose
 // Basic route
 app.get("/", (req, res) => {
   res.send("API is running");
+});
+
+app.get("/healthz", (req, res) => {
+  res.status(200).json({ status: "ok" });
 });
 
 const authRoutes = require("./routes/auth");
