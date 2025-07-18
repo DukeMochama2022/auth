@@ -9,7 +9,11 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // MongoDB Connection
 mongoose
