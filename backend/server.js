@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: "https://auth-p6nzen2cf-projects-projects-17ce6fbc.vercel.app",
+    origin: "https://auth-git-main-projects-projects-17ce6fbc.vercel.app",
   })
 );
 app.use(helmet());
