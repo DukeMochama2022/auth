@@ -83,7 +83,7 @@ _Render backend deployment logs_
 
 ## 📈 Monitoring & Maintenance
 
-![Monitoring Dashboard](screenshots/monitoring_dahsboard.png)
+![Monitoring Dashboard](screenshots/monitoring_dashboard.png)
 _Example monitoring dashboard (e.g., UptimeRobot or Render/Vercel analytics)_
 
 ### Health Check Endpoint
