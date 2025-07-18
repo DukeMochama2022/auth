@@ -1,78 +1,124 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19952834&assignment_repo_type=AssignmentRepo)
-# Deployment and DevOps for MERN Applications
+# MERN Auth App – Deployment & DevOps
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+## 🚀 Overview
 
-## Assignment Overview
+This is a full-stack MERN authentication app, deployed with CI/CD, environment variable management, and monitoring.  
+It demonstrates best practices for production readiness, automated deployment, and maintenance.
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+---
 
-## Getting Started
+## 🌐 Live URLs
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+- **Frontend:** [https://your-frontend-url.vercel.app](auth-git-main-projects-projects-17ce6fbc.vercel.app)
+- **Backend API:** [https://auth-6qsf.onrender.com](https://auth-n5m4.onrender.com)
 
-## Files Included
+---
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+## 📦 Repository Structure
 
-## Requirements
+```
+/backend    # Express.js API
+/frontend   # React + Vite frontend
+.github/    # GitHub Actions workflows
+```
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+---
 
-## Deployment Platforms
+## ⚙️ Environment Variables
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+### Backend (`backend/.env.example`)
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+```
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+JWT_SECRET=your_secret
+```
 
-## CI/CD Pipeline
+### Frontend (`frontend/.env.example`)
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+```
+VITE_API_URL=https://auth-6qsf.onrender.com
+```
 
-## Submission
+---
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+## 🚀 Deployment Instructions
 
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
+### **Backend (Render)**
 
-## Resources
+1. Create a new Web Service on [Render](https://render.com/).
+2. Connect your GitHub repo and select the backend folder.
+3. Set environment variables from `.env.example`.
+4. Use the provided deploy hook for CI/CD (see `.github/workflows/backend.yml`).
 
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+### **Frontend (Vercel)**
+
+1. Import your repo on [Vercel](https://vercel.com/).
+2. Set the root directory to `/frontend`.
+3. Set environment variables from `.env.example`.
+4. Vercel auto-deploys on every push to `main`.
+
+---
+
+## 🔄 CI/CD
+
+- **GitHub Actions** run lint, test, and build for both frontend and backend.
+- **Backend:** Deploys to Render via deploy hook on successful build.
+- **Frontend:** Vercel auto-deploys on push to `main`.
+
+---
+
+## 🖼️ CI/CD Pipeline Screenshots
+
+![GitHub Actions Workflow](screenshots/github_actions.png)
+_GitHub Actions: Example of a successful CI/CD pipeline run_
+
+![Frontend Logs](screenshots/frontend_logs.png)
+_Vercel frontend deployment logs_
+
+![Backend Logs](screenshots/backend_logs.png)
+_Render backend deployment logs_
+
+---
+
+## 📈 Monitoring & Maintenance
+
+![Monitoring Dashboard](screenshots/monitorin_dahsboard.png)
+_Example monitoring dashboard (e.g., UptimeRobot or Render/Vercel analytics)_
+
+### Health Check Endpoint
+
+- `/healthz` on backend returns `{ "status": "ok" }`.
+
+### Uptime Monitoring
+
+- [UptimeRobot](https://uptimerobot.com/) monitors the `/healthz` endpoint.
+
+### Performance Monitoring
+
+- Render and Vercel dashboards provide resource and performance metrics.
+
+### Maintenance Plan
+
+- Regular dependency updates (`npm outdated`).
+- MongoDB Atlas automated backups.
+- Rollback via Render/Vercel dashboards.
+
+---
+
+## 📝 Maintenance & Rollback Procedures
+
+- To update dependencies:
+  ```
+  cd backend && npm update
+  cd frontend && npm update
+  ```
+- To rollback:  
+  Use the Render or Vercel dashboard to revert to a previous deployment.
+
+---
+
+## 📚 Additional Notes
+
+- For local development, copy `.env.example` to `.env` in both `backend` and `frontend` and fill in your secrets.
+- For staging, use a separate branch and environment variables.
